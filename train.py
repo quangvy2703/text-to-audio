@@ -10,7 +10,7 @@ from pathlib import Path
 import datasets
 import numpy as np
 import pandas as pd
-import wandb
+# import wandb
 import torch
 from accelerate import Accelerator
 from accelerate.logging import get_logger
@@ -277,7 +277,7 @@ def main():
 
         accelerator.project_configuration.automatic_checkpoint_naming = False
 
-        wandb.init(project="Text to Audio Diffusion")
+        # wandb.init(project="Text to Audio Diffusion")
 
     accelerator.wait_for_everyone()
 
@@ -503,7 +503,7 @@ def main():
             result["train_loss"] = round(total_loss.item()/len(train_dataloader), 4)
             result["val_loss"] = round(total_val_loss.item()/len(eval_dataloader), 4)
 
-            wandb.log(result)
+            # wandb.log(result)
 
             result_string = "Epoch: {}, Loss Train: {}, Val: {}\n".format(epoch, result["train_loss"], result["val_loss"])
             
